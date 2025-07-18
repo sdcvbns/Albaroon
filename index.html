@@ -1,54 +1,501 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>أسعار البارون</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>أسعار البارون</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
+    color: #222;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  header {
+    background: #1765c1;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  #adminToggle {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    width: 22px;
+    height: 22px;
+    background-color: #24a148;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px #24a148aa;
+    transition: transform 0.3s ease;
+  }
+  #adminToggle:hover {
+    transform: scale(1.3);
+  }
+  main {
+    flex: 1;
+    max-width: 980px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px 30px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.15);
+  }
+  /* أقسام الواجهة */
+  .category-cards {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  .card {
+    flex: 0 0 140px;
+    background: linear-gradient(135deg, #5a8dee, #1e3ca6);
+    color: white;
+    border-radius: 15px;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  }
+  #filterCompany, #searchBar {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    outline-color: #1765c1;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+  }
+  thead {
+    background: #1765c1;
+    color: #fff;
+  }
+  th, td {
+    padding: 14px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+  }
+  tbody tr:hover {
+    background-color: #f1f5f9;
+  }
+  /* أزرار تعديل وحذف في الأدمن فقط */
+  .action-btn {
+    cursor: pointer;
+    padding: 6px 10px;
+    margin: 0 3px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  .edit-btn {
+    background-color: #1765c1;
+  }
+  .edit-btn:hover {
+    background-color: #0f488f;
+  }
+  .delete-btn {
+    background-color: #d14343;
+  }
+  .delete-btn:hover {
+    background-color: #a53030;
+  }
+  /* لوحة إدارة */
+  #adminPanel {
+    display: none;
+  }
+  #adminPanel h2 {
+    margin-top: 0;
+    color: #1765c1;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #adminPanel form {
+    max-width: 450px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  #adminPanel input, #adminPanel select {
+    padding: 10px 14px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+    outline-color: #1765c1;
+  }
+  #adminPanel button {
+    background-color: #1765c1;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  #adminPanel button:hover {
+    background-color: #0f488f;
+  }
+  #adminPanel .logout-btn {
+    background-color: #d14343;
+    margin-top: 0;
+  }
+  #adminPanel .logout-btn:hover {
+    background-color: #a53030;
+  }
+  #messageBox {
+    max-width: 450px;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: 600;
+  }
+  #messageBox.success {
+    color: #24a148;
+  }
+  #messageBox.error {
+    color: #d14343;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>أسعار البارون</h1>
-    <div class="button-group">
-      <button onclick="switchToCustomer()">واجهة الزبون</button>
-      <button onclick="switchToAdmin()">واجهة الأدمن</button>
-    </div>
-    <div id="form-section" style="display:none;">
-      <select id="company">
-        <option value="">اختر الشركة</option>
-        <option value="Samsung">Samsung</option>
-        <option value="Xiaomi">Xiaomi</option>
-        <option value="iPhone">iPhone</option>
-        <option value="Huawei">Huawei</option>
-        <option value="Oppo">Oppo</option>
-        <option value="Vivo">Vivo</option>
-        <option value="Realme">Realme</option>
-        <option value="Nokia">Nokia</option>
-      </select>
-      <select id="part">
-        <option value="">نوع القطعة</option>
-        <option value="شاشة">شاشة</option>
-        <option value="بطارية">بطارية</option>
-        <option value="قطعة غيار">قطعة غيار</option>
-      </select>
-      <input type="text" id="device" placeholder="نوع الجهاز" />
-      <input type="number" id="price" placeholder="السعر" />
-      <button onclick="addData()">إضافة</button>
-    </div>
-    <table id="data-table">
-      <thead>
-        <tr>
-          <th>الشركة</th>
-          <th>النوع</th>
-          <th>الجهاز</th>
-          <th>السعر</th>
-          <th class="admin-only">إجراءات</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
 
-  <script src="script.js"></script>
+<header>
+  أسعار البارون
+  <div id="adminToggle" title="دخول الأدمن"></div>
+</header>
+
+<main>
+  <!-- واجهة الزبون -->
+  <section id="customerView">
+    <div class="category-cards">
+      <div class="card" data-part="شاشة">الشاشات</div>
+      <div class="card" data-part="بطارية">البطاريات</div>
+      <div class="card" data-part="قطع غيار">قطع الغيار</div>
+    </div>
+
+    <select id="filterCompany" style="display:none;">
+      <option value="">كل الشركات</option>
+    </select>
+    <input type="text" id="searchBar" placeholder="ابحث باسم الجهاز أو القطعة أو الشركة..." style="display:none;" />
+
+    <table>
+      <thead>
+        <tr><th>الشركة</th><th>القطعة</th><th>الجهاز</th><th>السعر (د.ع)</th><th>الإجراءات</th></tr>
+      </thead>
+      <tbody id="priceTableBody"></tbody>
+    </table>
+  </section>
+
+  <!-- واجهة الأدمن -->
+  <section id="adminPanel">
+    <h2>لوحة الإدارة</h2>
+    <form id="adminForm">
+      <select id="companyInput" required>
+        <option value="" disabled selected>اختر الشركة</option>
+        <option>سامسونج</option>
+        <option>هواوي - هونر</option>
+        <option>شاومي</option>
+        <option>أوبو</option>
+        <option>ريلمي</option>
+        <option>***</option>
+        <option>ايفون</option>
+        <option>تكنو-انفنيكس</option>
+        <option>آيتل</option>
+      </select>
+      <select id="partInput" required>
+        <option value="" disabled selected>اختر نوع القطعة</option>
+        <option>شاشة</option>
+        <option>بطارية</option>
+        <option>قطع غيار</option>
+      </select>
+      <input type="text" id="deviceInput" placeholder="نوع الجهاز أو القطعة" required />
+      <input type="number" id="priceInput" placeholder="السعر بالدينار" min="0" required />
+      <button type="submit">حفظ السعر</button>
+      <button type="button" class="logout-btn" id="logoutBtn">تسجيل خروج</button>
+    </form>
+
+    <div id="messageBox"></div>
+  </section>
+</main>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzRwg2E206GDeE9D-D9RsW7OeEeylYGWZKnMbtwmj3wu5O2ova6OVhMBD63fZyzEiPn/exec';
+
+  const adminToggle = document.getElementById('adminToggle');
+  const customerView = document.getElementById('customerView');
+  const adminPanel = document.getElementById('adminPanel');
+  const priceTableBody = document.getElementById('priceTableBody');
+  const searchBar = document.getElementById('searchBar');
+  const filterCompany = document.getElementById('filterCompany');
+  const messageBox = document.getElementById('messageBox');
+  const adminForm = document.getElementById('adminForm');
+  const companyInput = document.getElementById('companyInput');
+  const partInput = document.getElementById('partInput');
+  const deviceInput = document.getElementById('deviceInput');
+  const priceInput = document.getElementById('priceInput');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  let allData = [];
+  let editRow = null;
+  let selectedPart = null;
+
+  const adminPassword = '399499';
+
+  function isAdminLoggedIn() {
+    return localStorage.getItem('isAdminLoggedIn') === 'true';
+  }
+  function setAdminLoggedIn(val) {
+    localStorage.setItem('isAdminLoggedIn', val ? 'true' : 'false');
+  }
+
+  async function fetchData() {
+    try {
+      const res = await fetch(scriptURL);
+      const data = await res.json();
+      allData = data.slice(1).map((row, i) => ({
+        row: i + 2,
+        company: row[0],
+        part: row[1],
+        device: row[2],
+        price: row[3]
+      }));
+      populateCompanyFilter();
+      renderTable();
+    } catch(e) {
+      showMessage('خطأ في جلب البيانات من السيرفر', 'error');
+    }
+  }
+
+  function showMessage(msg, type='') {
+    messageBox.textContent = msg;
+    messageBox.className = type;
+    setTimeout(() => {
+      messageBox.textContent = '';
+      messageBox.className = '';
+    }, 4000);
+  }
+
+  function populateCompanyFilter() {
+    if (!selectedPart) return;
+    const companies = [...new Set(allData.filter(i => i.part === selectedPart).map(i => i.company))].sort();
+    filterCompany.innerHTML = `<option value="">كل الشركات</option>` +
+      companies.map(c => `<option value="${c}">${c}</option>`).join('');
+  }
+
+  function renderTable() {
+    if (!selectedPart) {
+      priceTableBody.innerHTML = '';
+      return;
+    }
+    const filter = filterCompany.value;
+    const search = searchBar.value.trim().toLowerCase();
+    priceTableBody.innerHTML = '';
+
+    allData.filter(item => {
+      const matchesPart = item.part === selectedPart;
+      const matchesCompany = filter === '' || item.company === filter;
+      const textSearch = [item.company, item.part, item.device].join(' ').toLowerCase();
+      return matchesPart && matchesCompany && textSearch.includes(search);
+    }).forEach(item => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${item.company}</td>
+        <td>${item.part}</td>
+        <td>${item.device}</td>
+        <td>${item.price}</td>
+        <td>
+          ${isAdminLoggedIn() ? `
+            <button class="action-btn edit-btn" data-row="${item.row}">تعديل</button>
+            <button class="action-btn delete-btn" data-row="${item.row}">حذف</button>
+          ` : '-'}
+        </td>
+      `;
+      priceTableBody.appendChild(tr);
+    });
+
+    if (isAdminLoggedIn()) {
+      // أزرار التعديل والحذف للأدمن فقط
+      document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const row = btn.getAttribute('data-row');
+          const item = allData.find(i => i.row == row);
+          if (item) {
+            companyInput.value = item.company;
+            partInput.value = item.part;
+            deviceInput.value = item.device;
+            priceInput.value = item.price;
+            editRow = row;
+            showAdminPanel();
+          }
+        });
+      });
+      document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          if (!confirm('هل أنت متأكد من حذف هذا السجل؟')) return;
+          const row = btn.getAttribute('data-row');
+          try {
+            const formData = new FormData();
+            formData.append('action', 'delete');
+            formData.append('row', row);
+            const res = await fetch(scriptURL, { method: 'POST', body: formData });
+            const msg = await res.text();
+            showMessage(msg, 'success');
+            if (editRow === row) {
+              clearForm();
+              editRow = null;
+            }
+            fetchData();
+          } catch {
+            showMessage('حدث خطأ أثناء الحذف', 'error');
+          }
+        });
+      });
+    }
+  }
+
+  function showAdminPanel() {
+    adminPanel.style.display = 'block';
+    customerView.style.display = 'none';
+    adminToggle.style.display = 'none';
+    fetchData();
+  }
+  function showCustomerView() {
+    adminPanel.style.display = 'none';
+    customerView.style.display = 'block';
+    adminToggle.style.display = 'block';
+    setAdminLoggedIn(false);
+    resetFilters();
+    clearForm();
+    editRow = null;
+  }
+  function resetFilters() {
+    selectedPart = null;
+    filterCompany.style.display = 'none';
+    searchBar.style.display = 'none';
+    filterCompany.value = '';
+    searchBar.value = '';
+    priceTableBody.innerHTML = '';
+  }
+
+  async function promptAdminPassword() {
+    const pass = prompt('أدخل رمز الدخول للأدمن');
+    if (pass === null) return;
+    if (pass === adminPassword) {
+      setAdminLoggedIn(true);
+      showAdminPanel();
+      showMessage('تم تسجيل الدخول بنجاح', 'success');
+    } else {
+      alert('رمز الدخول غير صحيح');
+    }
+  }
+
+  async function submitForm(e) {
+    e.preventDefault();
+    const company = companyInput.value.trim();
+    const part = partInput.value.trim();
+    const device = deviceInput.value.trim();
+    const price = priceInput.value.trim();
+
+    if (!company || !part || !device || !price) {
+      showMessage('يرجى تعبئة جميع الحقول', 'error');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('company', company);
+    formData.append('part', part);
+    formData.append('device', device);
+    formData.append('price', price);
+
+    if (editRow) {
+      formData.append('action', 'update');
+      formData.append('row', editRow);
+    } else {
+      formData.append('action', 'add');
+    }
+
+    try {
+      const res = await fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+      });
+      const msg = await res.text();
+      showMessage(msg, 'success');
+      clearForm();
+      editRow = null;
+      fetchData();
+    } catch {
+      showMessage('حدث خطأ أثناء الحفظ', 'error');
+    }
+  }
+  function clearForm() {
+    companyInput.value = '';
+    partInput.value = '';
+    deviceInput.value = '';
+    priceInput.value = '';
+  }
+
+  function logoutAdmin() {
+    setAdminLoggedIn(false);
+    showCustomerView();
+  }
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      selectedPart = card.getAttribute('data-part');
+      filterCompany.style.display = 'block';
+      searchBar.style.display = 'block';
+      populateCompanyFilter();
+      renderTable();
+    });
+  });
+
+  searchBar.addEventListener('input', renderTable);
+  filterCompany.addEventListener('change', renderTable);
+  adminToggle.addEventListener('click', () => {
+    if (!isAdminLoggedIn()) promptAdminPassword();
+    else showAdminPanel();
+  });
+  adminForm.addEventListener('submit', submitForm);
+  logoutBtn.addEventListener('click', logoutAdmin);
+
+  window.addEventListener('load', () => {
+    fetchData();
+    if (isAdminLoggedIn()) showAdminPanel();
+    else showCustomerView();
+  });
+</script>
+
 </body>
 </html>
