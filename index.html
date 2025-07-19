@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>أسعار الشاشات والبطاريات وقطع الغيار</title>
+<title>أسعار الشاشات والبطاريات وقطع الغيار البارون
+  07719813722-07507946930
+</title>
 <style>
   /* خطوط */
   @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
@@ -14,6 +16,10 @@
     background: #f0f4f8;
     color: #222;
     transition: background-color 0.3s ease;
+    -webkit-user-select: none; /* منع النسخ */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   header {
@@ -202,7 +208,8 @@
 
 <header>
   <div class="admin-dot" onclick="openAdmin()"></div>
-  <h1>أسعار الشاشات والبطاريات وقطع الغيار</h1>
+  <h1>اسعار الشاشات والبطاريات وقطع الغيار \ محل البارون
+  07719813722-07507946930</h1>
 </header>
 
 <div class="container" id="customerPage">
@@ -462,6 +469,24 @@
     alert("تم حذف العنصر بنجاح");
     fetchData();
   }
+
+  // منع النسخ واللصق واختصارات الكيبورد المتعلقة بالنسخ
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+  document.addEventListener('paste', e => e.preventDefault());
+
+  // منع قائمة الفأرة اليمنى (الزر الأيمن)
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // منع اختصارات النسخ Ctrl+C و Ctrl+X و Ctrl+V و Ctrl+U (عرض المصدر) وغيرها
+  document.addEventListener('keydown', e => {
+    if (
+      (e.ctrlKey && ['c', 'x', 'v', 'u'].includes(e.key.toLowerCase())) ||
+      (e.key === 'F12')
+    ) {
+      e.preventDefault();
+    }
+  });
 
   window.onload = fetchData;
 </script>
