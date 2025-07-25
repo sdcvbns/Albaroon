@@ -1,321 +1,305 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>أسعار الشاشات والبطاريات وقطع الغيار البارون 07719813722-07507946930</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
-  body { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; background: #f0f4f8; color: #222; transition: background-color 0.3s ease; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-  header { background: linear-gradient(90deg, #1976d2, #42a5f5); color: white; text-align: center; padding: 20px 10px; position: relative; box-shadow: 0 3px 8px rgb(25 118 210 / 0.4); }
-  header h1 { margin: 0; font-weight: 700; font-size: 1.8rem; letter-spacing: 1px; }
-  .admin-dot { position: absolute; left: 12px; top: 20px; width: 20px; height: 20px; background: #121212; border-radius: 50%; cursor: pointer; box-shadow: 0 0 8px #000; transition: transform 0.25s ease, box-shadow 0.25s ease; }
-  .admin-dot:hover { transform: scale(1.2); box-shadow: 0 0 15px #2196f3; }
-  .container { max-width: 600px; margin: 30px auto 50px; padding: 15px 25px; background: white; border-radius: 14px; box-shadow: 0 8px 30px rgb(0 0 0 / 0.1); transition: box-shadow 0.3s ease; }
-  .container:focus-within { box-shadow: 0 10px 40px rgb(33 150 243 / 0.35); }
-  label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 1.1rem; color: #1976d2; }
-  select, input[type="text"], input[type="number"] { width: 100%; padding: 14px 18px; font-size: 17px; margin-bottom: 20px; border-radius: 12px; border: 2px solid #ddd; outline-offset: 2px; outline-color: transparent; box-sizing: border-box; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
-  select:hover, input[type="text"]:hover, input[type="number"]:hover,
-  select:focus, input[type="text"]:focus, input[type="number"]:focus {
-    border-color: #2196f3; box-shadow: 0 0 12px #90caf9; outline-color: #2196f3;
-  }
-  #searchInput { margin-top: -10px; margin-bottom: 25px; }
-  .list { background: #f9fbff; border-radius: 12px; max-height: 420px; overflow-y: auto; box-shadow: inset 0 0 10px rgb(33 150 243 / 0.1); padding: 15px; font-size: 16px; }
-  .item { padding: 14px 20px; border-bottom: 1px solid #dde7f2; display: flex; justify-content: space-between; align-items: center; color: #333; font-weight: 600; cursor: default; user-select: none; transition: background-color 0.25s ease; }
-  .item:last-child { border-bottom: none; }
-  .item:hover { background-color: #e3f2fd; }
-  .item .price { color: #1976d2; font-weight: 700; }
-  button { background: #2196f3; color: white; border: none; font-weight: 600; font-size: 17px; padding: 14px 25px; border-radius: 14px; cursor: pointer; transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 15px rgb(33 150 243 / 0.4); user-select: none; margin-top: 10px; }
-  button:hover { background-color: #1976d2; box-shadow: 0 6px 25px rgb(25 118 210 / 0.6); transform: translateY(-2px); }
-  button:active { transform: translateY(0); box-shadow: 0 3px 10px rgb(25 118 210 / 0.5); }
-  button.btn-back { background: #777; box-shadow: 0 4px 15px rgb(117 117 117 / 0.4); }
-  button.btn-back:hover { background: #555; box-shadow: 0 6px 25px rgb(85 85 85 / 0.6); }
-  #adminPage { display: none; max-width: 480px; margin: 30px auto 50px; background: white; padding: 30px 30px 40px; box-shadow: 0 10px 30px rgb(0 0 0 / 0.1); border-radius: 16px; transition: box-shadow 0.3s ease; }
-  #adminPage:focus-within { box-shadow: 0 14px 45px rgb(33 150 243 / 0.35); }
-  #adminPage h2 { margin-top: 0; color: #2196f3; font-weight: 700; font-size: 1.6rem; margin-bottom: 25px; user-select: none; }
-  @media (max-width: 640px) {
-    .container, #adminPage { margin: 20px 15px 40px; padding: 20px; }
-    button { width: 100%; margin-top: 15px; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تحت الصيانة</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+      background-size: 600% 600%;
+      animation: glowBackground 15s ease infinite;
+      color: white;
+      padding: 15px;
+    }
+    @keyframes glowBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .container {
+      background: rgba(255 255 255 / 0.07);
+      border-radius: 18px;
+      padding: 25px 35px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow:
+        0 0 30px 6px rgba(0, 255, 255, 0.3),
+        inset 0 0 20px 3px rgba(0, 255, 255, 0.4);
+      text-align: right;
+      position: relative;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      bottom: -15px;
+      left: -15px;
+      right: -15px;
+      border-radius: 22px;
+      box-shadow: 0 0 50px 15px rgba(0, 255, 255, 0.25);
+      filter: blur(10px);
+      z-index: -1;
+      opacity: 0.7;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.7;
+        box-shadow: 0 0 50px 15px rgba(0, 255, 255, 0.25);
+      }
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 70px 25px rgba(0, 255, 255, 0.5);
+      }
+    }
+
+    h1 {
+      margin: 0 0 12px 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+    }
+
+    p {
+      margin: 0 0 30px 0;
+      font-size: 1.1rem;
+      color: #a9d7e9;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .time-box {
+      background: rgba(255 255 255 / 0.12);
+      padding: 14px 22px;
+      border-radius: 14px;
+      box-shadow:
+        inset 0 0 12px rgba(255 255 255 / 0.3),
+        0 0 8px rgba(0, 255, 255, 0.3);
+      min-width: 80px;
+      text-align: center;
+      user-select: none;
+      transition: background 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+    }
+
+    .time-box span {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #d2faff;
+      letter-spacing: 1.5px;
+      display: block;
+      line-height: 1;
+    }
+
+    .time-box small {
+      font-size: 0.85rem;
+      color: #9bd4e6;
+      letter-spacing: 0.8px;
+      margin-top: 5px;
+      display: block;
+    }
+
+    .glow-message {
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+      text-align: center;
+      color: #00ffff;
+      text-shadow: 0 0 8px #00ffff, 0 0 15px #00e0ff;
+      animation: glowText 2s ease-in-out infinite alternate;
+      user-select: none;
+    }
+
+    @keyframes glowText {
+      from {
+        text-shadow: 0 0 8px #00ffff;
+      }
+      to {
+        text-shadow: 0 0 18px #00ffff, 0 0 30px #00e0ff;
+      }
+    }
+
+    .loader-line {
+      position: relative;
+      width: 100%;
+      height: 6px;
+      background: rgba(255 255 255 / 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow:
+        0 0 8px rgba(0, 255, 255, 0.5),
+        inset 0 0 10px rgba(0, 255, 255, 0.8);
+    }
+
+    .loader-line::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 45%;
+      background: linear-gradient(90deg, transparent, #00f0ff, transparent);
+      filter: drop-shadow(0 0 6px #00f0ff);
+      animation: loading 1.6s linear infinite;
+      border-radius: 4px;
+    }
+
+    @keyframes loading {
+      0% {
+        left: -45%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    .finished-message {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #00ffff;
+      text-align: center;
+      padding: 20px 15px;
+      border-radius: 15px;
+      background: rgba(0, 255, 255, 0.1);
+      box-shadow: 0 0 20px #00ffff;
+      display: none;
+      user-select: none;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      text-align: center;
+      opacity: 0.5;
+      user-select: none;
+    }
+  </style>
 </head>
 <body>
+  <div class="container" role="main" aria-label="صفحة تحت الصيانة">
+    <h1></h1>
+    <p> صيانة وقت الانتهاء المتوقع:</p>
+    <div class="countdown" aria-live="polite" aria-atomic="true">
+      <div class="time-box">
+        <span id="hours">00</span>
+        <small>ساعات</small>
+      </div>
+      <div class="time-box">
+        <span id="minutes">00</span>
+        <small>دقائق</small>
+      </div>
+      <div class="time-box">
+        <span id="seconds">00</span>
+        <small>ثواني</small>
+      </div>
+    </div>
 
-<header>
-  <div class="admin-dot" onclick="openAdmin()"></div>
-  <h1>اسعار الشاشات والبطاريات وقطع الغيار \ محل البارون<br>07719813722 - 07507946930</h1>
-</header>
+    <!-- الرسالة المتوهجة المضافة -->
+    <div class="glow-message">الصيانة ستشمل إضافة التحسينات في الأداء، شكرًا لصبركم</div>
 
-<div class="container" id="customerPage">
-  <label for="brandSelect">اختر الشركة:</label>
-  <select id="brandSelect" onchange="onBrandOrTypeChange()">
-    <option value="" disabled selected>اختر الشركة</option>
-    <option>ايفون</option>
-    <option>سامسونج</option>
-    <option>شاومي</option>
-    <option>هواوي- هونر</option>
-    <option>اوبو</option>
-    <option>فيفو</option>
-    <option>انفنكس- تكنو</option>
-    <option>0ريلمي</option>
-    <option>آيتل</option>
-    <option>ريلمي</option>
-    <option>##</option>
-  </select>
+    <div class="loader-line" aria-label="شريط تحميل متحرك"></div>
+    <div class="finished-message" role="alert" aria-live="assertive">
+      الوقت المتوقع انتهى، يرجى إعادة تشغيل التطبيق.
+    </div>
+    <footer>جميع الحقوق محفوظة © 2025</footer>
+  </div>
 
-  <label for="typeSelect">اختر النوع:</label>
-  <select id="typeSelect" onchange="onBrandOrTypeChange()" disabled>
-    <option value="" disabled selected>اختر النوع</option>
-    <option>شاشة</option>
-    <option>بطارية</option>
-    <option>قطع غيار</option>
-  </select>
+  <!-- إضافة عنصر الصوت -->
+  <audio id="bgMusic" autoplay loop style="display:none;">
+    <source src="https://files.catbox.moe/vr2ck8.mp3" type="audio/mpeg" ></source>
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
 
-  <input type="text" id="searchInput" placeholder="ابحث هنا..." oninput="renderList()" style="display:none; margin-bottom: 15px;">
-  <div class="list" id="productsList"></div>
-</div>
+  <script>
+    // كود العد التنازلي للصيانة
+    const maintenanceDurationMs = 2 * 60 * 60 * 1000; // ساعتين
+    const now = new Date().getTime();
 
-<div id="adminPage">
-  <h2>لوحة التحكم</h2>
-  <select id="adminBrand">
-    <option disabled selected>اختر الشركة</option>
-    <option>ايفون</option>
-    <option>سامسونج</option>
-    <option>شاومي</option>
-    <option>هواوي- هونر</option>
-    <option>اوبو</option>
-    <option>فيفو</option>
-    <option>انفنكس- تكنو</option>
-    <option>0ريلمي</option>
-    <option>آيتل</option>
-    <option>##</option>
-    <option>ريلمي</option>
-  </select>
-  <input type="text" id="adminName" placeholder="اسم القطعة أو الموديل" />
-  <input type="number" id="adminPrice" placeholder="السعر" />
-  <select id="adminType">
-    <option disabled selected>اختر النوع</option>
-    <option>شاشة</option>
-    <option>بطارية</option>
-    <option>قطع غيار</option>
-  </select>
-  <button onclick="addItem()">إضافة</button>
-  <button class="btn-back" onclick="closeAdmin()">العودة</button>
-  <div id="adminList" style="margin-top: 25px; max-height: 350px; overflow-y: auto; border-top: 2px solid #2196f3; padding-top: 15px;"></div>
-</div>
-
-<script>
-  const apiUrl = "https://script.google.com/macros/s/AKfycbzNVNGfghyzyoy5Vt77SAWNXj1I3tTdv3YMWaq4gfr2Uw2wUBLGQs159ZW4Gyzt-b3ppg/exec";
-  let allData = [];
-
-  async function fetchData() {
-    const res = await fetch(apiUrl);
-    allData = await res.json();
-    document.getElementById('typeSelect').disabled = false;
-    renderAdminList();
-  }
-
-  function onBrandOrTypeChange() {
-    const brand = document.getElementById('brandSelect').value;
-    const type = document.getElementById('typeSelect').value;
-    const searchInput = document.getElementById('searchInput');
-    const productsList = document.getElementById('productsList');
-
-    if (brand && type) {
-      searchInput.style.display = 'block';
-      renderList();
+    let endTime = localStorage.getItem('maintenanceEndTime');
+    if (endTime) {
+      endTime = parseInt(endTime, 10);
+      if (endTime < now) {
+        endTime = now + maintenanceDurationMs;
+        localStorage.setItem('maintenanceEndTime', endTime);
+      }
     } else {
-      searchInput.style.display = 'none';
-      productsList.innerHTML = '';
+      endTime = now + maintenanceDurationMs;
+      localStorage.setItem('maintenanceEndTime', endTime);
     }
-  }
 
-  function clean(str) {
-    return str.replace(/[\u200E\u200F\u00A0]/g, '').trim().toLowerCase();
-  }
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const countdownEl = document.querySelector('.countdown');
+    const loaderLineEl = document.querySelector('.loader-line');
+    const finishedMessageEl = document.querySelector('.finished-message');
 
-  function renderList() {
-    const brand = document.getElementById('brandSelect').value;
-    const type = document.getElementById('typeSelect').value;
-    const query = document.getElementById('searchInput').value.toLowerCase();
+    function updateCountdown() {
+      const currentTime = new Date().getTime();
+      const diff = endTime - currentTime;
 
-    const productsList = document.getElementById('productsList');
-    productsList.innerHTML = '';
+      if (diff <= 0) {
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
 
-    if (!brand || !type) return;
+        countdownEl.style.display = 'none';
+        loaderLineEl.style.display = 'none';
+        finishedMessageEl.style.display = 'block';
 
-    const filtered = allData.slice(1).filter(row => {
-      if (row.length < 4) return false;
-      const [name, price, itemType, itemBrand] = row;
-      return clean(itemBrand) === clean(brand) &&
-             clean(itemType) === clean(type) &&
-             clean(name).includes(clean(query));
+        localStorage.removeItem('maintenanceEndTime');
+        clearInterval(timer);
+        return;
+      }
+
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      hoursEl.textContent = hours.toString().padStart(2, '0');
+      minutesEl.textContent = minutes.toString().padStart(2, '0');
+      secondsEl.textContent = seconds.toString().padStart(2, '0');
+    }
+
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // كود تشغيل الموسيقى تلقائياً مع التعامل مع منع التشغيل التلقائي في بعض المتصفحات
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('bgMusic');
+      audio.play().catch(() => {
+        // إذا فشل التشغيل، انتظر أول نقرة لتشغيل الصوت
+        document.body.addEventListener('click', () => {
+          audio.play();
+        }, { once: true });
+      });
     });
-
-    if (filtered.length === 0) {
-      productsList.innerHTML = '<p style="padding:10px; color:#888;">لا توجد نتائج</p>';
-      return;
-    }
-
-    filtered.forEach(row => {
-      const [name, price] = row;
-      const div = document.createElement('div');
-      div.className = 'item';
-      div.innerHTML = `<div class="name">${name}</div><div class="price">${formatPrice(price)}</div>`;
-      productsList.appendChild(div);
-    });
-  }
-
-  function formatPrice(price) {
-    return Number(price).toLocaleString('en-US') + ' IQD';
-  }
-
-  async function addItem() {
-    const brand = document.getElementById('adminBrand').value;
-    const name = document.getElementById('adminName').value.trim();
-    const price = document.getElementById('adminPrice').value.trim();
-    const type = document.getElementById('adminType').value;
-
-    if (!brand || !name || !price || !type) {
-      alert('يرجى ملء جميع الحقول');
-      return;
-    }
-
-    await fetch(apiUrl, {
-      method: 'POST',
-      body: JSON.stringify({ brand, name, price, type, action: "add" }),
-    });
-
-    alert('تمت الإضافة بنجاح');
-    document.getElementById('adminBrand').selectedIndex = 0;
-    document.getElementById('adminName').value = '';
-    document.getElementById('adminPrice').value = '';
-    document.getElementById('adminType').selectedIndex = 0;
-
-    fetchData();
-  }
-
-  function openAdmin() {
-    const code = prompt('أدخل رمز الدخول:');
-    if (code === '200300') {
-      document.getElementById('customerPage').style.display = 'none';
-      document.getElementById('adminPage').style.display = 'block';
-      renderAdminList();
-    } else {
-      alert('رمز خاطئ');
-    }
-  }
-
-  function closeAdmin() {
-    document.getElementById('adminPage').style.display = 'none';
-    document.getElementById('customerPage').style.display = 'block';
-    fetchData();
-  }
-
-  function renderAdminList() {
-    const adminList = document.getElementById('adminList');
-    if (!adminList) return;
-    adminList.innerHTML = '';
-
-    if (allData.length <= 1) {
-      adminList.innerHTML = '<p>لا توجد بيانات للعرض</p>';
-      return;
-    }
-
-    const headerRow = document.createElement('div');
-    headerRow.style.display = 'flex';
-    headerRow.style.justifyContent = 'space-between';
-    headerRow.style.fontWeight = '700';
-    headerRow.style.padding = '10px 0';
-    headerRow.style.borderBottom = '2px solid #2196f3';
-    headerRow.innerHTML = `
-      <div style="flex:2;">الاسم</div>
-      <div style="flex:1; text-align:center;">السعر</div>
-      <div style="flex:1; text-align:center;">النوع</div>
-      <div style="flex:1; text-align:center;">الشركة</div>
-      <div style="flex:1; text-align:center;">تعديل</div>
-      <div style="flex:1; text-align:center;">حذف</div>
-    `;
-    adminList.appendChild(headerRow);
-
-    allData.slice(1).forEach((row, i) => {
-      if (row.length < 4) return;
-      const [name, price, type, brand] = row;
-
-      const rowDiv = document.createElement('div');
-      rowDiv.style.display = 'flex';
-      rowDiv.style.justifyContent = 'space-between';
-      rowDiv.style.alignItems = 'center';
-      rowDiv.style.padding = '8px 0';
-      rowDiv.style.borderBottom = '1px solid #ddd';
-
-      rowDiv.innerHTML = `
-        <div style="flex:2;">${name}</div>
-        <div style="flex:1; text-align:center;">${formatPrice(price)}</div>
-        <div style="flex:1; text-align:center;">${type}</div>
-        <div style="flex:1; text-align:center;">${brand}</div>
-        <div style="flex:1; text-align:center;">
-          <button onclick="editItem(${i})" style="padding: 6px 12px; font-size: 14px;">تعديل</button>
-        </div>
-        <div style="flex:1; text-align:center;">
-          <button onclick="deleteItem(${i})" style="padding: 6px 12px; font-size: 14px; background:#e53935;">حذف</button>
-        </div>
-      `;
-
-      adminList.appendChild(rowDiv);
-    });
-  }
-
-  async function editItem(index) {
-    const item = allData[index + 1];
-    if (!item) return;
-    const [name, oldPrice, type, brand] = item;
-
-    const newPrice = prompt(`تعديل السعر لـ "${name}" (السعر الحالي: ${oldPrice}):`, oldPrice);
-    if (newPrice === null) return;
-
-    if (newPrice.trim() === "" || isNaN(newPrice)) {
-      alert("يرجى إدخال سعر صالح");
-      return;
-    }
-
-    await fetch(apiUrl, {
-      method: "POST",
-      body: JSON.stringify({ action: "edit", brand, name, price: newPrice, type }),
-    });
-
-    alert("تم تعديل السعر بنجاح");
-    fetchData();
-  }
-
-  async function deleteItem(index) {
-    const item = allData[index + 1];
-    if (!item) return;
-    const [name, price, type, brand] = item;
-
-    if (!confirm(`هل أنت متأكد من حذف "${name}"؟`)) return;
-
-    await fetch(apiUrl, {
-      method: "POST",
-      body: JSON.stringify({ action: "delete", brand, name, price, type }),
-    });
-
-    alert("تم حذف العنصر بنجاح");
-    fetchData();
-  }
-
-  document.addEventListener('copy', e => e.preventDefault());
-  document.addEventListener('cut', e => e.preventDefault());
-  document.addEventListener('paste', e => e.preventDefault());
-  document.addEventListener('contextmenu', e => e.preventDefault());
-  document.addEventListener('keydown', e => {
-    if ((e.ctrlKey && ['c', 'x', 'v', 'u'].includes(e.key.toLowerCase())) || e.key === 'F12') {
-      e.preventDefault();
-    }
-  });
-
-  window.onload = fetchData;
-</script>
-
+  </script>
 </body>
 </html>
