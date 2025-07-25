@@ -3,204 +3,39 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>أسعار الشاشات والبطاريات وقطع الغيار البارون
-  07719813722-07507946930
-</title>
+<title>أسعار الشاشات والبطاريات وقطع الغيار البارون 07719813722-07507946930</title>
 <style>
-  /* خطوط */
   @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
-  
-  body {
-    font-family: 'Cairo', sans-serif;
-    margin: 0; padding: 0;
-    background: #f0f4f8;
-    color: #222;
-    transition: background-color 0.3s ease;
-    -webkit-user-select: none; /* منع النسخ */
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  header {
-    background: linear-gradient(90deg, #1976d2, #42a5f5);
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
-    position: relative;
-    box-shadow: 0 3px 8px rgb(25 118 210 / 0.4);
-  }
-  header h1 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-  }
-
-  .admin-dot {
-    position: absolute;
-    left: 12px; top: 20px;
-    width: 20px; height: 20px;
-    background: #121212;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 8px #000;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .admin-dot:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 15px #2196f3;
-  }
-
-  .container {
-    max-width: 600px;
-    margin: 30px auto 50px;
-    padding: 15px 25px;
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 8px 30px rgb(0 0 0 / 0.1);
-    transition: box-shadow 0.3s ease;
-  }
-  .container:focus-within {
-    box-shadow: 0 10px 40px rgb(33 150 243 / 0.35);
-  }
-
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #1976d2;
-  }
-
-  select, input[type="text"], input[type="number"] {
-    width: 100%;
-    padding: 14px 18px;
-    font-size: 17px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    border: 2px solid #ddd;
-    outline-offset: 2px;
-    outline-color: transparent;
-    box-sizing: border-box;
-    transition:
-      border-color 0.3s ease,
-      box-shadow 0.3s ease;
-  }
+  body { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; background: #f0f4f8; color: #222; transition: background-color 0.3s ease; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+  header { background: linear-gradient(90deg, #1976d2, #42a5f5); color: white; text-align: center; padding: 20px 10px; position: relative; box-shadow: 0 3px 8px rgb(25 118 210 / 0.4); }
+  header h1 { margin: 0; font-weight: 700; font-size: 1.8rem; letter-spacing: 1px; }
+  .admin-dot { position: absolute; left: 12px; top: 20px; width: 20px; height: 20px; background: #121212; border-radius: 50%; cursor: pointer; box-shadow: 0 0 8px #000; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .admin-dot:hover { transform: scale(1.2); box-shadow: 0 0 15px #2196f3; }
+  .container { max-width: 600px; margin: 30px auto 50px; padding: 15px 25px; background: white; border-radius: 14px; box-shadow: 0 8px 30px rgb(0 0 0 / 0.1); transition: box-shadow 0.3s ease; }
+  .container:focus-within { box-shadow: 0 10px 40px rgb(33 150 243 / 0.35); }
+  label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 1.1rem; color: #1976d2; }
+  select, input[type="text"], input[type="number"] { width: 100%; padding: 14px 18px; font-size: 17px; margin-bottom: 20px; border-radius: 12px; border: 2px solid #ddd; outline-offset: 2px; outline-color: transparent; box-sizing: border-box; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
   select:hover, input[type="text"]:hover, input[type="number"]:hover,
   select:focus, input[type="text"]:focus, input[type="number"]:focus {
-    border-color: #2196f3;
-    box-shadow: 0 0 12px #90caf9;
-    outline-color: #2196f3;
+    border-color: #2196f3; box-shadow: 0 0 12px #90caf9; outline-color: #2196f3;
   }
-
-  #searchInput {
-    margin-top: -10px;
-    margin-bottom: 25px;
-  }
-
-  .list {
-    background: #f9fbff;
-    border-radius: 12px;
-    max-height: 420px;
-    overflow-y: auto;
-    box-shadow: inset 0 0 10px rgb(33 150 243 / 0.1);
-    padding: 15px;
-    font-size: 16px;
-  }
-  .item {
-    padding: 14px 20px;
-    border-bottom: 1px solid #dde7f2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #333;
-    font-weight: 600;
-    cursor: default;
-    user-select: none;
-    transition: background-color 0.25s ease;
-  }
-  .item:last-child {
-    border-bottom: none;
-  }
-  .item:hover {
-    background-color: #e3f2fd;
-  }
-
-  .item .price {
-    color: #1976d2;
-    font-weight: 700;
-  }
-
-  /* أزرار */
-  button {
-    background: #2196f3;
-    color: white;
-    border: none;
-    font-weight: 600;
-    font-size: 17px;
-    padding: 14px 25px;
-    border-radius: 14px;
-    cursor: pointer;
-    transition:
-      background-color 0.3s ease,
-      box-shadow 0.3s ease,
-      transform 0.2s ease;
-    box-shadow: 0 4px 15px rgb(33 150 243 / 0.4);
-    user-select: none;
-    margin-top: 10px;
-  }
-  button:hover {
-    background-color: #1976d2;
-    box-shadow: 0 6px 25px rgb(25 118 210 / 0.6);
-    transform: translateY(-2px);
-  }
-  button:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 10px rgb(25 118 210 / 0.5);
-  }
-  button.btn-back {
-    background: #777;
-    box-shadow: 0 4px 15px rgb(117 117 117 / 0.4);
-  }
-  button.btn-back:hover {
-    background: #555;
-    box-shadow: 0 6px 25px rgb(85 85 85 / 0.6);
-  }
-
-  /* صفحة الأدمن */
-  #adminPage {
-    display: none;
-    max-width: 480px;
-    margin: 30px auto 50px;
-    background: white;
-    padding: 30px 30px 40px;
-    box-shadow: 0 10px 30px rgb(0 0 0 / 0.1);
-    border-radius: 16px;
-    transition: box-shadow 0.3s ease;
-  }
-  #adminPage:focus-within {
-    box-shadow: 0 14px 45px rgb(33 150 243 / 0.35);
-  }
-  #adminPage h2 {
-    margin-top: 0;
-    color: #2196f3;
-    font-weight: 700;
-    font-size: 1.6rem;
-    margin-bottom: 25px;
-    user-select: none;
-  }
-
-  /* Responsive */
+  #searchInput { margin-top: -10px; margin-bottom: 25px; }
+  .list { background: #f9fbff; border-radius: 12px; max-height: 420px; overflow-y: auto; box-shadow: inset 0 0 10px rgb(33 150 243 / 0.1); padding: 15px; font-size: 16px; }
+  .item { padding: 14px 20px; border-bottom: 1px solid #dde7f2; display: flex; justify-content: space-between; align-items: center; color: #333; font-weight: 600; cursor: default; user-select: none; transition: background-color 0.25s ease; }
+  .item:last-child { border-bottom: none; }
+  .item:hover { background-color: #e3f2fd; }
+  .item .price { color: #1976d2; font-weight: 700; }
+  button { background: #2196f3; color: white; border: none; font-weight: 600; font-size: 17px; padding: 14px 25px; border-radius: 14px; cursor: pointer; transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 15px rgb(33 150 243 / 0.4); user-select: none; margin-top: 10px; }
+  button:hover { background-color: #1976d2; box-shadow: 0 6px 25px rgb(25 118 210 / 0.6); transform: translateY(-2px); }
+  button:active { transform: translateY(0); box-shadow: 0 3px 10px rgb(25 118 210 / 0.5); }
+  button.btn-back { background: #777; box-shadow: 0 4px 15px rgb(117 117 117 / 0.4); }
+  button.btn-back:hover { background: #555; box-shadow: 0 6px 25px rgb(85 85 85 / 0.6); }
+  #adminPage { display: none; max-width: 480px; margin: 30px auto 50px; background: white; padding: 30px 30px 40px; box-shadow: 0 10px 30px rgb(0 0 0 / 0.1); border-radius: 16px; transition: box-shadow 0.3s ease; }
+  #adminPage:focus-within { box-shadow: 0 14px 45px rgb(33 150 243 / 0.35); }
+  #adminPage h2 { margin-top: 0; color: #2196f3; font-weight: 700; font-size: 1.6rem; margin-bottom: 25px; user-select: none; }
   @media (max-width: 640px) {
-    .container, #adminPage {
-      margin: 20px 15px 40px;
-      padding: 20px;
-    }
-    button {
-      width: 100%;
-      margin-top: 15px;
-    }
+    .container, #adminPage { margin: 20px 15px 40px; padding: 20px; }
+    button { width: 100%; margin-top: 15px; }
   }
 </style>
 </head>
@@ -208,12 +43,10 @@
 
 <header>
   <div class="admin-dot" onclick="openAdmin()"></div>
-  <h1>اسعار الشاشات والبطاريات وقطع الغيار \ محل البارون
-  07719813722-07507946930</h1>
+  <h1>اسعار الشاشات والبطاريات وقطع الغيار \ محل البارون<br>07719813722 - 07507946930</h1>
 </header>
 
 <div class="container" id="customerPage">
-
   <label for="brandSelect">اختر الشركة:</label>
   <select id="brandSelect" onchange="onBrandOrTypeChange()">
     <option value="" disabled selected>اختر الشركة</option>
@@ -224,9 +57,9 @@
     <option>اوبو</option>
     <option>فيفو</option>
     <option>انفنكس- تكنو</option>
-    <option>0ريلمي</option>
-    <option>آيتل</option>
     <option>ريلمي</option>
+    <option>آيتل</option>
+    <option>##</option>
     <option>##</option>
   </select>
 
@@ -239,9 +72,7 @@
   </select>
 
   <input type="text" id="searchInput" placeholder="ابحث هنا..." oninput="renderList()" style="display:none; margin-bottom: 15px;">
-
   <div class="list" id="productsList"></div>
-
 </div>
 
 <div id="adminPage">
@@ -255,9 +86,9 @@
     <option>اوبو</option>
     <option>فيفو</option>
     <option>انفنكس- تكنو</option>
-    <option>0ريلمي</option>
-    <option>آيتل</option>
     <option>ريلمي</option>
+    <option>آيتل</option>
+    <option>##</option>
     <option>##</option>
   </select>
   <input type="text" id="adminName" placeholder="اسم القطعة أو الموديل" />
@@ -270,12 +101,11 @@
   </select>
   <button onclick="addItem()">إضافة</button>
   <button class="btn-back" onclick="closeAdmin()">العودة</button>
-
   <div id="adminList" style="margin-top: 25px; max-height: 350px; overflow-y: auto; border-top: 2px solid #2196f3; padding-top: 15px;"></div>
 </div>
 
 <script>
-  const apiUrl = "https://script.google.com/macros/s/AKfycbwaJStMA-P3mOIXBzuvO2GhOwnXm-vQXj1pAHd9RcmKf3mXrE4UTf-32ARYuR401oK7Gw/exec;
+  const apiUrl = "https://script.google.com/macros/s/AKfycbzNVNGfghyzyoy5Vt77SAWNXj1I3tTdv3YMWaq4gfr2Uw2wUBLGQs159ZW4Gyzt-b3ppg/exec";
   let allData = [];
 
   async function fetchData() {
@@ -288,7 +118,6 @@
   function onBrandOrTypeChange() {
     const brand = document.getElementById('brandSelect').value;
     const type = document.getElementById('typeSelect').value;
-
     const searchInput = document.getElementById('searchInput');
     const productsList = document.getElementById('productsList');
 
@@ -299,6 +128,10 @@
       searchInput.style.display = 'none';
       productsList.innerHTML = '';
     }
+  }
+
+  function clean(str) {
+    return str.replace(/[\u200E\u200F\u00A0]/g, '').trim().toLowerCase();
   }
 
   function renderList() {
@@ -314,7 +147,9 @@
     const filtered = allData.slice(1).filter(row => {
       if (row.length < 4) return false;
       const [name, price, itemType, itemBrand] = row;
-      return itemBrand === brand && itemType === type && name.toLowerCase().includes(query);
+      return clean(itemBrand) === clean(brand) &&
+             clean(itemType) === clean(type) &&
+             clean(name).includes(clean(query));
     });
 
     if (filtered.length === 0) {
@@ -469,20 +304,12 @@
     fetchData();
   }
 
-  // منع النسخ واللصق واختصارات الكيبورد المتعلقة بالنسخ
   document.addEventListener('copy', e => e.preventDefault());
   document.addEventListener('cut', e => e.preventDefault());
   document.addEventListener('paste', e => e.preventDefault());
-
-  // منع قائمة الفأرة اليمنى (الزر الأيمن)
   document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // منع اختصارات النسخ Ctrl+C و Ctrl+X و Ctrl+V و Ctrl+U (عرض المصدر) وغيرها
   document.addEventListener('keydown', e => {
-    if (
-      (e.ctrlKey && ['c', 'x', 'v', 'u'].includes(e.key.toLowerCase())) ||
-      (e.key === 'F12')
-    ) {
+    if ((e.ctrlKey && ['c', 'x', 'v', 'u'].includes(e.key.toLowerCase())) || e.key === 'F12') {
       e.preventDefault();
     }
   });
